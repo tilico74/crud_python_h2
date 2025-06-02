@@ -25,8 +25,8 @@ Este é um projeto de aprendizado que implementa um sistema de cadastro de clien
 1. Clone o repositório:
 
 ```bash
-git clone https://github.com/seu-usuario/seu-repositorio.git
-cd seu-repositorio
+git clone https://github.com/tilico74/crud_python_h2.git
+cd crud_python_h2
 ```
 
 2. Crie o ambiente virtual:
