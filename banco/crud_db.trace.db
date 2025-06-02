@@ -1,0 +1,288 @@
+2025-05-31 23:02:56.373762-03:00 database: close
+org.h2.message.DbException: IO Exception: "Closing" [90028-232]
+	at org.h2.message.DbException.get(DbException.java:212)
+	at org.h2.mvstore.db.Store.close(Store.java:374)
+	at org.h2.engine.Database.closeOpenFilesAndUnlock(Database.java:1292)
+	at org.h2.engine.Database.closeImpl(Database.java:1254)
+	at org.h2.engine.Database.close(Database.java:1173)
+	at org.h2.engine.Database.onShutdown(Database.java:1158)
+	at org.h2.engine.OnExitDatabaseCloser.onShutdown(OnExitDatabaseCloser.java:85)
+	at org.h2.engine.OnExitDatabaseCloser.run(OnExitDatabaseCloser.java:114)
+Caused by: org.h2.jdbc.JdbcSQLNonTransientException: IO Exception: "Closing" [90028-232]
+	at org.h2.message.DbException.getJdbcSQLException(DbException.java:566)
+	at org.h2.message.DbException.getJdbcSQLException(DbException.java:489)
+	... 8 more
+Caused by: org.h2.mvstore.MVStoreException: Reading from file sun.nio.ch.FileChannelImpl@624991a1 failed at 14227 (length -1), read 0, remaining 40 [2.3.232/1]
+	at org.h2.mvstore.DataUtils.newMVStoreException(DataUtils.java:996)
+	at org.h2.mvstore.DataUtils.readFully(DataUtils.java:455)
+	at org.h2.mvstore.FileStore.readFully(FileStore.java:721)
+	at org.h2.mvstore.SingleFileStore.readFully(SingleFileStore.java:60)
+	at org.h2.mvstore.SingleFileStore.readFully(SingleFileStore.java:28)
+	at org.h2.mvstore.SFChunk.readFully(SFChunk.java:35)
+	at org.h2.mvstore.Chunk.readToC(Chunk.java:496)
+	at org.h2.mvstore.FileStore.getToC(FileStore.java:2070)
+	at org.h2.mvstore.FileStore.rewriteChunks(FileStore.java:1913)
+	at org.h2.mvstore.FileStore.compactRewrite(FileStore.java:1901)
+	at org.h2.mvstore.FileStore.rewriteChunks(FileStore.java:1862)
+	at org.h2.mvstore.FileStore.lambda$compact$0(FileStore.java:879)
+	at org.h2.mvstore.MVStore.tryExecuteUnderStoreLock(MVStore.java:937)
+	at org.h2.mvstore.FileStore.compact(FileStore.java:879)
+	at org.h2.mvstore.RandomAccessStore.compactStore(RandomAccessStore.java:441)
+	at org.h2.mvstore.FileStore.compactStore(FileStore.java:890)
+	at org.h2.mvstore.FileStore.stop(FileStore.java:275)
+	at org.h2.mvstore.MVStore.closeStore(MVStore.java:693)
+	at org.h2.mvstore.MVStore.close(MVStore.java:643)
+	at org.h2.mvstore.db.Store.close(Store.java:364)
+	... 6 more
+Caused by: java.nio.channels.ClosedByInterruptException
+	at java.base/java.nio.channels.spi.AbstractInterruptibleChannel.end(AbstractInterruptibleChannel.java:199)
+	at java.base/sun.nio.ch.FileChannelImpl.endBlocking(FileChannelImpl.java:171)
+	at java.base/sun.nio.ch.FileChannelImpl.readInternal(FileChannelImpl.java:844)
+	at java.base/sun.nio.ch.FileChannelImpl.read(FileChannelImpl.java:821)
+	at org.h2.mvstore.DataUtils.readFully(DataUtils.java:441)
+	... 24 more
+2025-06-01 17:35:58.229658-03:00 database: close
+org.h2.message.DbException: IO Exception: "Closing" [90028-232]
+	at org.h2.message.DbException.get(DbException.java:212)
+	at org.h2.mvstore.db.Store.close(Store.java:374)
+	at org.h2.engine.Database.closeOpenFilesAndUnlock(Database.java:1292)
+	at org.h2.engine.Database.closeImpl(Database.java:1254)
+	at org.h2.engine.Database.close(Database.java:1173)
+	at org.h2.engine.Database.onShutdown(Database.java:1158)
+	at org.h2.engine.OnExitDatabaseCloser.onShutdown(OnExitDatabaseCloser.java:85)
+	at org.h2.engine.OnExitDatabaseCloser.run(OnExitDatabaseCloser.java:114)
+Caused by: org.h2.jdbc.JdbcSQLNonTransientException: IO Exception: "Closing" [90028-232]
+	at org.h2.message.DbException.getJdbcSQLException(DbException.java:566)
+	at org.h2.message.DbException.getJdbcSQLException(DbException.java:489)
+	... 8 more
+Caused by: org.h2.mvstore.MVStoreException: Writing to sun.nio.ch.FileChannelImpl@7aa6252a failed; length 8192 at 0 [2.3.232/2]
+	at org.h2.mvstore.DataUtils.newMVStoreException(DataUtils.java:996)
+	at org.h2.mvstore.DataUtils.writeFully(DataUtils.java:478)
+	at org.h2.mvstore.SingleFileStore.writeFully(SingleFileStore.java:67)
+	at org.h2.mvstore.SingleFileStore.writeFully(SingleFileStore.java:28)
+	at org.h2.mvstore.RandomAccessStore.writeStoreHeader(RandomAccessStore.java:610)
+	at org.h2.mvstore.RandomAccessStore.compactMoveChunks(RandomAccessStore.java:533)
+	at org.h2.mvstore.RandomAccessStore.compactMoveChunks(RandomAccessStore.java:481)
+	at org.h2.mvstore.RandomAccessStore.lambda$compactMoveChunks$1(RandomAccessStore.java:468)
+	at org.h2.mvstore.FileStore.executeFileStoreOperation(FileStore.java:1893)
+	at org.h2.mvstore.MVStore.executeFilestoreOperation(MVStore.java:922)
+	at org.h2.mvstore.RandomAccessStore.compactMoveChunks(RandomAccessStore.java:463)
+	at org.h2.mvstore.RandomAccessStore.compactStore(RandomAccessStore.java:443)
+	at org.h2.mvstore.FileStore.compactStore(FileStore.java:890)
+	at org.h2.mvstore.FileStore.stop(FileStore.java:275)
+	at org.h2.mvstore.MVStore.closeStore(MVStore.java:693)
+	at org.h2.mvstore.MVStore.close(MVStore.java:643)
+	at org.h2.mvstore.db.Store.close(Store.java:364)
+	... 6 more
+Caused by: java.nio.channels.ClosedByInterruptException
+	at java.base/java.nio.channels.spi.AbstractInterruptibleChannel.end(AbstractInterruptibleChannel.java:199)
+	at java.base/sun.nio.ch.FileChannelImpl.endBlocking(FileChannelImpl.java:171)
+	at java.base/sun.nio.ch.FileChannelImpl.writeInternal(FileChannelImpl.java:883)
+	at java.base/sun.nio.ch.FileChannelImpl.write(FileChannelImpl.java:861)
+	at org.h2.mvstore.DataUtils.writeFully(DataUtils.java:474)
+	... 21 more
+2025-06-01 17:37:48.604612-03:00 database: close
+org.h2.message.DbException: IO Exception: "Closing" [90028-232]
+	at org.h2.message.DbException.get(DbException.java:212)
+	at org.h2.mvstore.db.Store.close(Store.java:374)
+	at org.h2.engine.Database.closeOpenFilesAndUnlock(Database.java:1292)
+	at org.h2.engine.Database.closeImpl(Database.java:1254)
+	at org.h2.engine.Database.close(Database.java:1173)
+	at org.h2.engine.Database.onShutdown(Database.java:1158)
+	at org.h2.engine.OnExitDatabaseCloser.onShutdown(OnExitDatabaseCloser.java:85)
+	at org.h2.engine.OnExitDatabaseCloser.run(OnExitDatabaseCloser.java:114)
+Caused by: org.h2.jdbc.JdbcSQLNonTransientException: IO Exception: "Closing" [90028-232]
+	at org.h2.message.DbException.getJdbcSQLException(DbException.java:566)
+	at org.h2.message.DbException.getJdbcSQLException(DbException.java:489)
+	... 8 more
+Caused by: org.h2.mvstore.MVStoreException: Reading from file sun.nio.ch.FileChannelImpl@66b5ab33 failed at 14227 (length -1), read 0, remaining 40 [2.3.232/1]
+	at org.h2.mvstore.DataUtils.newMVStoreException(DataUtils.java:996)
+	at org.h2.mvstore.DataUtils.readFully(DataUtils.java:455)
+	at org.h2.mvstore.FileStore.readFully(FileStore.java:721)
+	at org.h2.mvstore.SingleFileStore.readFully(SingleFileStore.java:60)
+	at org.h2.mvstore.SingleFileStore.readFully(SingleFileStore.java:28)
+	at org.h2.mvstore.SFChunk.readFully(SFChunk.java:35)
+	at org.h2.mvstore.Chunk.readToC(Chunk.java:496)
+	at org.h2.mvstore.FileStore.getToC(FileStore.java:2070)
+	at org.h2.mvstore.FileStore.rewriteChunks(FileStore.java:1913)
+	at org.h2.mvstore.FileStore.compactRewrite(FileStore.java:1901)
+	at org.h2.mvstore.FileStore.rewriteChunks(FileStore.java:1862)
+	at org.h2.mvstore.FileStore.lambda$compact$0(FileStore.java:879)
+	at org.h2.mvstore.MVStore.tryExecuteUnderStoreLock(MVStore.java:937)
+	at org.h2.mvstore.FileStore.compact(FileStore.java:879)
+	at org.h2.mvstore.RandomAccessStore.compactStore(RandomAccessStore.java:441)
+	at org.h2.mvstore.FileStore.compactStore(FileStore.java:890)
+	at org.h2.mvstore.FileStore.stop(FileStore.java:275)
+	at org.h2.mvstore.MVStore.closeStore(MVStore.java:693)
+	at org.h2.mvstore.MVStore.close(MVStore.java:643)
+	at org.h2.mvstore.db.Store.close(Store.java:364)
+	... 6 more
+Caused by: java.nio.channels.ClosedByInterruptException
+	at java.base/java.nio.channels.spi.AbstractInterruptibleChannel.end(AbstractInterruptibleChannel.java:199)
+	at java.base/sun.nio.ch.FileChannelImpl.endBlocking(FileChannelImpl.java:171)
+	at java.base/sun.nio.ch.FileChannelImpl.readInternal(FileChannelImpl.java:844)
+	at java.base/sun.nio.ch.FileChannelImpl.read(FileChannelImpl.java:821)
+	at org.h2.mvstore.DataUtils.readFully(DataUtils.java:441)
+	... 24 more
+2025-06-01 17:39:54.774675-03:00 database: close
+org.h2.message.DbException: IO Exception: "Closing" [90028-232]
+	at org.h2.message.DbException.get(DbException.java:212)
+	at org.h2.mvstore.db.Store.close(Store.java:374)
+	at org.h2.engine.Database.closeOpenFilesAndUnlock(Database.java:1292)
+	at org.h2.engine.Database.closeImpl(Database.java:1254)
+	at org.h2.engine.Database.close(Database.java:1173)
+	at org.h2.engine.Database.onShutdown(Database.java:1158)
+	at org.h2.engine.OnExitDatabaseCloser.onShutdown(OnExitDatabaseCloser.java:85)
+	at org.h2.engine.OnExitDatabaseCloser.run(OnExitDatabaseCloser.java:114)
+Caused by: org.h2.jdbc.JdbcSQLNonTransientException: IO Exception: "Closing" [90028-232]
+	at org.h2.message.DbException.getJdbcSQLException(DbException.java:566)
+	at org.h2.message.DbException.getJdbcSQLException(DbException.java:489)
+	... 8 more
+Caused by: org.h2.mvstore.MVStoreException: Could not sync file C:/Users/p/Documents/crud/banco/crud_db.mv.db [2.3.232/2]
+	at org.h2.mvstore.DataUtils.newMVStoreException(DataUtils.java:996)
+	at org.h2.mvstore.SingleFileStore.sync(SingleFileStore.java:181)
+	at org.h2.mvstore.RandomAccessStore.compactStore(RandomAccessStore.java:442)
+	at org.h2.mvstore.FileStore.compactStore(FileStore.java:890)
+	at org.h2.mvstore.FileStore.stop(FileStore.java:275)
+	at org.h2.mvstore.MVStore.closeStore(MVStore.java:693)
+	at org.h2.mvstore.MVStore.close(MVStore.java:643)
+	at org.h2.mvstore.db.Store.close(Store.java:364)
+	... 6 more
+Caused by: java.nio.channels.ClosedByInterruptException
+	at java.base/java.nio.channels.spi.AbstractInterruptibleChannel.end(AbstractInterruptibleChannel.java:199)
+	at java.base/sun.nio.ch.FileChannelImpl.endBlocking(FileChannelImpl.java:171)
+	at java.base/sun.nio.ch.FileChannelImpl.force(FileChannelImpl.java:472)
+	at org.h2.mvstore.SingleFileStore.sync(SingleFileStore.java:179)
+	... 12 more
+2025-06-01 17:40:47.351575-03:00 database: close
+org.h2.message.DbException: IO Exception: "Closing" [90028-232]
+	at org.h2.message.DbException.get(DbException.java:212)
+	at org.h2.mvstore.db.Store.close(Store.java:374)
+	at org.h2.engine.Database.closeOpenFilesAndUnlock(Database.java:1292)
+	at org.h2.engine.Database.closeImpl(Database.java:1254)
+	at org.h2.engine.Database.close(Database.java:1173)
+	at org.h2.engine.Database.onShutdown(Database.java:1158)
+	at org.h2.engine.OnExitDatabaseCloser.onShutdown(OnExitDatabaseCloser.java:85)
+	at org.h2.engine.OnExitDatabaseCloser.run(OnExitDatabaseCloser.java:114)
+Caused by: org.h2.jdbc.JdbcSQLNonTransientException: IO Exception: "Closing" [90028-232]
+	at org.h2.message.DbException.getJdbcSQLException(DbException.java:566)
+	at org.h2.message.DbException.getJdbcSQLException(DbException.java:489)
+	... 8 more
+Caused by: org.h2.mvstore.MVStoreException: Reading from file sun.nio.ch.FileChannelImpl@66b5ab33 failed at 14227 (length -1), read 0, remaining 40 [2.3.232/1]
+	at org.h2.mvstore.DataUtils.newMVStoreException(DataUtils.java:996)
+	at org.h2.mvstore.DataUtils.readFully(DataUtils.java:455)
+	at org.h2.mvstore.FileStore.readFully(FileStore.java:721)
+	at org.h2.mvstore.SingleFileStore.readFully(SingleFileStore.java:60)
+	at org.h2.mvstore.SingleFileStore.readFully(SingleFileStore.java:28)
+	at org.h2.mvstore.SFChunk.readFully(SFChunk.java:35)
+	at org.h2.mvstore.Chunk.readToC(Chunk.java:496)
+	at org.h2.mvstore.FileStore.getToC(FileStore.java:2070)
+	at org.h2.mvstore.FileStore.rewriteChunks(FileStore.java:1913)
+	at org.h2.mvstore.FileStore.compactRewrite(FileStore.java:1901)
+	at org.h2.mvstore.FileStore.rewriteChunks(FileStore.java:1862)
+	at org.h2.mvstore.FileStore.lambda$compact$0(FileStore.java:879)
+	at org.h2.mvstore.MVStore.tryExecuteUnderStoreLock(MVStore.java:937)
+	at org.h2.mvstore.FileStore.compact(FileStore.java:879)
+	at org.h2.mvstore.RandomAccessStore.compactStore(RandomAccessStore.java:441)
+	at org.h2.mvstore.FileStore.compactStore(FileStore.java:890)
+	at org.h2.mvstore.FileStore.stop(FileStore.java:275)
+	at org.h2.mvstore.MVStore.closeStore(MVStore.java:693)
+	at org.h2.mvstore.MVStore.close(MVStore.java:643)
+	at org.h2.mvstore.db.Store.close(Store.java:364)
+	... 6 more
+Caused by: java.nio.channels.ClosedByInterruptException
+	at java.base/java.nio.channels.spi.AbstractInterruptibleChannel.end(AbstractInterruptibleChannel.java:199)
+	at java.base/sun.nio.ch.FileChannelImpl.endBlocking(FileChannelImpl.java:171)
+	at java.base/sun.nio.ch.FileChannelImpl.readInternal(FileChannelImpl.java:844)
+	at java.base/sun.nio.ch.FileChannelImpl.read(FileChannelImpl.java:821)
+	at org.h2.mvstore.DataUtils.readFully(DataUtils.java:441)
+	... 24 more
+2025-06-01 17:43:32.508246-03:00 jdbc[3]: exception
+org.h2.jdbc.JdbcSQLSyntaxErrorException: Syntax error in SQL statement "INSERT INTO cliente (id, nome) VALUES ( [*], 'Tilico RDX');"; expected "), DEFAULT, INTERSECTS (, NOT, EXISTS, UNIQUE, INTERSECTS"; SQL statement:
+INSERT INTO cliente (id, nome) VALUES ( , 'Tilico RDX'); [42001-232]
+2025-06-01 17:43:32.553256-03:00 database: close
+org.h2.message.DbException: IO Exception: "Closing" [90028-232]
+	at org.h2.message.DbException.get(DbException.java:212)
+	at org.h2.mvstore.db.Store.close(Store.java:374)
+	at org.h2.engine.Database.closeOpenFilesAndUnlock(Database.java:1292)
+	at org.h2.engine.Database.closeImpl(Database.java:1254)
+	at org.h2.engine.Database.close(Database.java:1173)
+	at org.h2.engine.Database.onShutdown(Database.java:1158)
+	at org.h2.engine.OnExitDatabaseCloser.onShutdown(OnExitDatabaseCloser.java:85)
+	at org.h2.engine.OnExitDatabaseCloser.run(OnExitDatabaseCloser.java:114)
+Caused by: org.h2.jdbc.JdbcSQLNonTransientException: IO Exception: "Closing" [90028-232]
+	at org.h2.message.DbException.getJdbcSQLException(DbException.java:566)
+	at org.h2.message.DbException.getJdbcSQLException(DbException.java:489)
+	... 8 more
+Caused by: org.h2.mvstore.MVStoreException: Reading from file sun.nio.ch.FileChannelImpl@75ad488e failed at 18323 (length -1), read 0, remaining 24 [2.3.232/1]
+	at org.h2.mvstore.DataUtils.newMVStoreException(DataUtils.java:996)
+	at org.h2.mvstore.DataUtils.readFully(DataUtils.java:455)
+	at org.h2.mvstore.FileStore.readFully(FileStore.java:721)
+	at org.h2.mvstore.SingleFileStore.readFully(SingleFileStore.java:60)
+	at org.h2.mvstore.SingleFileStore.readFully(SingleFileStore.java:28)
+	at org.h2.mvstore.SFChunk.readFully(SFChunk.java:35)
+	at org.h2.mvstore.Chunk.readToC(Chunk.java:496)
+	at org.h2.mvstore.FileStore.getToC(FileStore.java:2070)
+	at org.h2.mvstore.FileStore.rewriteChunks(FileStore.java:1913)
+	at org.h2.mvstore.FileStore.compactRewrite(FileStore.java:1901)
+	at org.h2.mvstore.FileStore.rewriteChunks(FileStore.java:1862)
+	at org.h2.mvstore.FileStore.lambda$compact$0(FileStore.java:879)
+	at org.h2.mvstore.MVStore.tryExecuteUnderStoreLock(MVStore.java:937)
+	at org.h2.mvstore.FileStore.compact(FileStore.java:879)
+	at org.h2.mvstore.RandomAccessStore.compactStore(RandomAccessStore.java:441)
+	at org.h2.mvstore.FileStore.compactStore(FileStore.java:890)
+	at org.h2.mvstore.FileStore.stop(FileStore.java:275)
+	at org.h2.mvstore.MVStore.closeStore(MVStore.java:693)
+	at org.h2.mvstore.MVStore.close(MVStore.java:643)
+	at org.h2.mvstore.db.Store.close(Store.java:364)
+	... 6 more
+Caused by: java.nio.channels.ClosedByInterruptException
+	at java.base/java.nio.channels.spi.AbstractInterruptibleChannel.end(AbstractInterruptibleChannel.java:199)
+	at java.base/sun.nio.ch.FileChannelImpl.endBlocking(FileChannelImpl.java:171)
+	at java.base/sun.nio.ch.FileChannelImpl.readInternal(FileChannelImpl.java:844)
+	at java.base/sun.nio.ch.FileChannelImpl.read(FileChannelImpl.java:821)
+	at org.h2.mvstore.DataUtils.readFully(DataUtils.java:441)
+	... 24 more
+2025-06-01 19:24:19.861214-03:00 jdbc[3]: exception
+org.h2.jdbc.JdbcSQLDataException: Invalid value "2" for parameter "parameterIndex" [90008-232]
+	at org.h2.message.DbException.getJdbcSQLException(DbException.java:658)
+	at org.h2.message.DbException.getJdbcSQLException(DbException.java:489)
+	at org.h2.message.DbException.get(DbException.java:223)
+	at org.h2.message.DbException.getInvalidValueException(DbException.java:298)
+	at org.h2.jdbc.JdbcPreparedStatement.setParameter(JdbcPreparedStatement.java:1396)
+	at org.h2.jdbc.JdbcPreparedStatement.setObject(JdbcPreparedStatement.java:506)
+2025-06-01 19:24:33.707247-03:00 jdbc[4]: exception
+org.h2.jdbc.JdbcSQLDataException: Invalid value "2" for parameter "parameterIndex" [90008-232]
+	at org.h2.message.DbException.getJdbcSQLException(DbException.java:658)
+	at org.h2.message.DbException.getJdbcSQLException(DbException.java:489)
+	at org.h2.message.DbException.get(DbException.java:223)
+	at org.h2.message.DbException.getInvalidValueException(DbException.java:298)
+	at org.h2.jdbc.JdbcPreparedStatement.setParameter(JdbcPreparedStatement.java:1396)
+	at org.h2.jdbc.JdbcPreparedStatement.setObject(JdbcPreparedStatement.java:506)
+2025-06-01 19:24:45.428645-03:00 jdbc[6]: exception
+org.h2.jdbc.JdbcSQLDataException: Invalid value "2" for parameter "parameterIndex" [90008-232]
+	at org.h2.message.DbException.getJdbcSQLException(DbException.java:658)
+	at org.h2.message.DbException.getJdbcSQLException(DbException.java:489)
+	at org.h2.message.DbException.get(DbException.java:223)
+	at org.h2.message.DbException.getInvalidValueException(DbException.java:298)
+	at org.h2.jdbc.JdbcPreparedStatement.setParameter(JdbcPreparedStatement.java:1396)
+	at org.h2.jdbc.JdbcPreparedStatement.setObject(JdbcPreparedStatement.java:506)
+2025-06-01 20:49:00.360971-03:00 jdbc[4]: null
+org.h2.message.DbException: The connection was not closed by the application and is garbage collected [90018-232]
+	at org.h2.message.DbException.get(DbException.java:223)
+	at org.h2.message.DbException.get(DbException.java:199)
+	at org.h2.message.DbException.get(DbException.java:188)
+	at org.h2.jdbc.JdbcConnection.closeOld(JdbcConnection.java:217)
+	at org.h2.jdbc.JdbcConnection.<init>(JdbcConnection.java:134)
+	at org.h2.Driver.connect(Driver.java:59)
+	at java.sql/java.sql.DriverManager.getConnection(DriverManager.java:681)
+	at java.sql/java.sql.DriverManager.getConnection(DriverManager.java:229)
+	at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
+	at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:77)
+	at java.base/jdk.internal.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43)
+	at java.base/java.lang.reflect.Method.invoke(Method.java:568)
+	at org.jpype.Reflector0.callMethod(Unknown Source)
+Caused by: org.h2.jdbc.JdbcSQLNonTransientConnectionException: The connection was not closed by the application and is garbage collected [90018-232]
+	at org.h2.message.DbException.getJdbcSQLException(DbException.java:690)
+	at org.h2.message.DbException.getJdbcSQLException(DbException.java:489)
+	... 13 more
